@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MILDANY</title>
+
+<style>
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+width:100%;
+height:100vh;
+overflow:hidden;
+font-family:Arial,Helvetica,sans-serif;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:#ffdce8;
+
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+.background{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:100%;
+height:100%;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+180deg,
+#ffbfd4 0%,
+#ffd6e6 35%,
+#fff3f7 75%,
+#ffffff 100%
+);
+
+}
+
+/* ===========================
+   SUN
+=========================== */
+
+.sun{
+
+position:absolute;
+
+width:180px;
+height:180px;
+
+border-radius:50%;
+
+top:60px;
+left:50%;
+
+transform:translateX(-50%);
+
+background:#fff3b5;
+
+box-shadow:
+
+0 0 40px #fff7d0,
+0 0 80px #ffe48c,
+0 0 150px rgba(255,220,100,.6);
+
+animation:sunGlow 5s ease-in-out infinite;
+
+}
+
+@keyframes sunGlow{
+
+0%,100%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+50%{
+
+transform:translateX(-50%) scale(1.08);
+
+}
+
+}
+
+/* ===========================
+   CLOUD
+=========================== */
+
+.cloud{
+
+position:absolute;
+
+width:180px;
+height:60px;
+
+background:white;
+
+border-radius:100px;
+
+opacity:.8;
+
+}
+
+.cloud::before{
+
+content:"";
+
+position:absolute;
+
+width:80px;
+height:80px;
+
+background:white;
+
+border-radius:50%;
+
+left:20px;
+top:-35px;
+
+}
+
+.cloud::after{
+
+content:"";
+
+position:absolute;
+
+width:90px;
+height:90px;
+
+background:white;
+
+border-radius:50%;
+
+right:20px;
+top:-45px;
+
+}
+
+.cloud1{
+
+top:100px;
+
+left:-220px;
+
+animation:cloudMove 35s linear infinite;
+
+}
+
+.cloud2{
+
+top:180px;
+
+left:-350px;
+
+animation:cloudMove 42s linear infinite;
+
+}
+
+.cloud3{
+
+top:250px;
+
+left:-180px;
+
+animation:cloudMove 50s linear infinite;
+
+}
+
+@keyframes cloudMove{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(1800px);
+
+}
+
+}
+
+/* ===========================
+   MOUNTAIN
+=========================== */
+
+.mountain{
+
+position:absolute;
+
+bottom:140px;
+
+width:700px;
+
+height:300px;
+
+background:#cda0b8;
+
+clip-path:polygon(
+50% 0%,
+100% 100%,
+0% 100%
+);
+
+}
+
+.mountain1{
+
+left:-120px;
+
+}
+
+.mountain2{
+
+right:-120px;
+
+height:260px;
+
+background:#d7b0c3;
+
+}
+
+/* ===========================
+   SPARKLE
+=========================== */
+
+.sparkles{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+}
+
+/* ===========================
+   SCENE
+=========================== */
+
+.scene{
+
+position:absolute;
+
+bottom:120px;
+
+width:700px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:flex-end;
+
+z-index:5;
+
+}
+
+/* ===========================
+   DOLL
+=========================== */
+
+.doll{
+
+position:relative;
+
+width:170px;
+
+height:320px;
+
+animation:bounce 2.5s ease-in-out infinite;
+
+}
+
+.girl{
+
+animation-delay:1.2s;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+/* ===========================
+   HEAD
+=========================== */
+
+.head{
+
+position:absolute;
+
+top:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:95px;
+
+height:95px;
+
+background:#ffd6b0;
+
+border-radius:50%;
+
+box-shadow:0 5px 10px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   HAIR
+=========================== */
+
+.hair{
+
+position:absolute;
+
+top:-5px;
+
+left:0;
+
+width:95px;
+
+height:55px;
+
+background:#503321;
+
+border-radius:60px 60px 25px 25px;
+
+}
+
+.girlHair{
+
+height:80px;
+
+border-radius:60px;
+
+}
+
+/* ===========================
+   EYE
+=========================== */
+
+.eye{
+
+position:absolute;
+
+width:8px;
+
+height:8px;
+
+background:#222;
+
+border-radius:50%;
+
+top:38px;
+
+animation:blink 5s infinite;
+
+}
+
+.eye.left{
+
+left:25px;
+
+}
+
+.eye.right{
+
+right:25px;
+
+}
+
+@keyframes blink{
+
+0%,46%,48%,100%{
+
+transform:scaleY(1);
+
+}
+
+47%{
+
+transform:scaleY(.1);
+
+}
+
+}
+
+/* ===========================
+   BLUSH
+=========================== */
+
+.blush{
+
+position:absolute;
+
+width:15px;
+
+height:10px;
+
+background:#ff9ab6;
+
+border-radius:50%;
+
+opacity:.5;
+
+top:50px;
+
+}
+
+.blush.left{
+
+left:12px;
+
+}
+
+.blush.right{
+
+right:12px;
+
+}
+
+/* ===========================
+   MOUTH
+=========================== */
+
+.mouth{
+
+position:absolute;
+
+left:50%;
+
+bottom:18px;
+
+transform:translateX(-50%);
+
+width:18px;
+
+height:8px;
+
+border-bottom:3px solid #d65d72;
+
+border-radius:0 0 20px 20px;
+
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+.body{
+
+position:absolute;
+
+top:88px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:70px;
+
+height:95px;
+
+border-radius:20px;
+
+}
+
+.boyBody{
+
+background:#5da8ff;
+
+}
+
+.girlBody{
+
+background:#ff6fa4;
+
+}
+
+/* ===========================
+   ARM
+=========================== */
+
+.arm{
+
+position:absolute;
+
+top:100px;
+
+width:15px;
+
+height:65px;
+
+background:#ffd6b0;
+
+border-radius:20px;
+
+}
+
+.arm.left{
+
+left:38px;
+
+transform-origin:top;
+
+animation:leftArm 2s infinite;
+
+}
+
+.arm.right{
+
+right:38px;
+
+transform-origin:top;
+
+animation:rightArm 2s infinite;
+
+}
+
+@keyframes leftArm{
+
+0%,100%{
+
+transform:rotate(15deg);
+
+}
+
+50%{
+
+transform:rotate(-15deg);
+
+}
+
+}
+
+@keyframes rightArm{
+
+0%,100%{
+
+transform:rotate(-15deg);
+
+}
+
+50%{
+
+transform:rotate(15deg);
+
+}
+
+}
+
+/* ===========================
+   LEG
+=========================== */
+
+.leg{
+
+position:absolute;
+
+top:180px;
+
+width:18px;
+
+height:70px;
+
+background:#ffd6b0;
+
+border-radius:20px;
+
+}
+
+.leg.left{
+
+left:63px;
+
+}
+
+.leg.right{
+
+right:63px;
+
+}
+
+/* ===========================
+   CHAT BUBBLE
+=========================== */
+
+.bubble{
+
+position:absolute;
+
+top:-90px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+min-width:220px;
+
+padding:15px;
+
+background:rgba(255,255,255,.75);
+
+backdrop-filter:blur(12px);
+
+border-radius:20px;
+
+text-align:center;
+
+font-weight:bold;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+opacity:0;
+
+transition:.5s;
+
+}
+
+.bubble.show{
+
+opacity:1;
+
+top:-120px;
+
+}
+
+/* ===========================
+   END MESSAGE
+=========================== */
+
+.message{
+
+position:absolute;
+
+bottom:40px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:26px;
+
+font-weight:bold;
+
+color:black;
+
+text-shadow:0 0 15px rgb(133, 120, 126);
+
+opacity:0;
+
+transition:1s;
+
+}
+
+.message.show{
+
+opacity:1;
+
+}
+
+/* ===========================
+   HEARTS
+=========================== */
+
+#hearts{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Background -->
+<div class="background">
+
+<div class="sun"></div>
+
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
+
+<div class="sparkles"></div>
+
+<div class="mountain mountain1"></div>
+<div class="mountain mountain2"></div>
+
+</div>
+
+<!-- Love Particle -->
+<div id="hearts"></div>
+
+<!-- Scene -->
+<div class="scene">
+
+<div class="doll boy">
+
+<div class="bubble" id="boyBubble"></div>
+
+<div class="head">
+
+<div class="hair boyHair"></div>
+
+<div class="eye left"></div>
+<div class="eye right"></div>
+
+<div class="blush left"></div>
+<div class="blush right"></div>
+
+<div class="mouth"></div>
+
+</div>
+
+<div class="body boyBody"></div>
+
+<div class="arm left"></div>
+<div class="arm right"></div>
+
+<div class="leg left"></div>
+<div class="leg right"></div>
+
+</div>
+
+<div class="doll girl">
+
+<div class="bubble" id="girlBubble"></div>
+
+<div class="head">
+
+<div class="hair girlHair"></div>
+
+<div class="eye left"></div>
+<div class="eye right"></div>
+
+<div class="blush left"></div>
+<div class="blush right"></div>
+
+<div class="mouth"></div>
+
+</div>
+
+<div class="body girlBody"></div>
+
+<div class="arm left"></div>
+<div class="arm right"></div>
+
+<div class="leg left"></div>
+<div class="leg right"></div>
+
+</div>
+
+</div>
+
+<div class="message" id="endingMessage">
+I LOVE YOU SO MUCH CIBUN SAYANG ❤️
+</div>
+
+<script>
+
+//==========================
+// DIALOG
+//==========================
+
+const boyBubble = document.getElementById("boyBubble");
+const girlBubble = document.getElementById("girlBubble");
+
+const ending = document.getElementById("endingMessage");
+
+const boy = document.querySelector(".boy");
+const girl = document.querySelector(".girl");
+
+const dialogs=[
+
+{
+speaker:"boy",
+text:"Cibun sayang... aku mau minta maaf ya. 😔"
+},
+
+{
+speaker:"boy",
+text:"Aku merasa bersalah sama kamu."
+},
+
+{
+speaker:"boy",
+text:"Aku nggak pernah berniat bikin kamu sedih."
+},
+
+{
+speaker:"girl",
+text:"Aku tahu... ❤️"
+},
+
+{
+speaker:"boy",
+text:"Aku sayang banget sama kamu."
+},
+
+{
+speaker:"boy",
+text:"Aku takut kehilangan kamu..."
+},
+
+{
+speaker:"boy",
+text:"Aku nggak bisa ngebayangin kalau suatu hari kamu pergi."
+},
+
+{
+speaker:"girl",
+text:"Aku juga sayang sama kamu."
+},
+
+{
+speaker:"girl",
+text:"Kita sama-sama belajar jadi lebih baik ya."
+},
+
+{
+speaker:"boy",
+text:"Janji... aku akan lebih menjaga hati kamu dan berusaha buat bahagiakan kamu."
+},
+
+{
+speaker:"girl",
+text:"Aku tetap di sini... ❤️"
+}
+
+];
+
+let index=0;
+
+//==========================
+// TAMPILKAN DIALOG
+//==========================
+
+function nextDialog(){
+
+boyBubble.classList.remove("show");
+girlBubble.classList.remove("show");
+
+setTimeout(()=>{
+
+const item=dialogs[index];
+
+if(item.speaker==="boy"){
+
+boyBubble.innerHTML=item.text;
+boyBubble.classList.add("show");
+
+talkAnimation(boy);
+
+}else{
+
+girlBubble.innerHTML=item.text;
+girlBubble.classList.add("show");
+
+talkAnimation(girl);
+
+}
+
+index++;
+
+if(index>=dialogs.length){
+
+clearInterval(dialogLoop);
+
+setTimeout(endScene,3000);
+
+}
+
+},400);
+
+}
+
+const dialogLoop=setInterval(nextDialog,3500);
+
+nextDialog();
+
+//==========================
+// MULUT BERGERAK
+//==========================
+
+function talkAnimation(target){
+
+const mouth=target.querySelector(".mouth");
+
+let open=false;
+
+const move=setInterval(()=>{
+
+if(open){
+
+mouth.style.height="8px";
+mouth.style.borderRadius="0 0 20px 20px";
+
+}else{
+
+mouth.style.height="15px";
+mouth.style.borderRadius="50%";
+
+}
+
+open=!open;
+
+},180);
+
+setTimeout(()=>{
+
+clearInterval(move);
+
+mouth.style.height="8px";
+
+},2500);
+
+}
+
+//==========================
+// LOVE PARTICLE
+//==========================
+
+const hearts=document.getElementById("hearts");
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.innerHTML="❤️";
+
+heart.style.position="absolute";
+
+heart.style.left=Math.random()*window.innerWidth+"px";
+
+heart.style.bottom="0";
+
+heart.style.fontSize=(18+Math.random()*18)+"px";
+
+heart.style.opacity=".8";
+
+heart.style.transition="4s linear";
+
+hearts.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.style.transform=
+`translateY(-${window.innerHeight}px)
+rotate(${Math.random()*360}deg)`;
+
+heart.style.opacity="0";
+
+},100);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},4500);
+
+}
+
+setInterval(createHeart,700);
+
+//==========================
+// SPARKLE
+//==========================
+
+const sparkles=document.querySelector(".sparkles");
+
+function sparkle(){
+
+const s=document.createElement("div");
+
+s.style.position="absolute";
+
+s.style.width="4px";
+
+s.style.height="4px";
+
+s.style.background="white";
+
+s.style.borderRadius="50%";
+
+s.style.left=Math.random()*100+"%";
+
+s.style.top=Math.random()*100+"%";
+
+s.style.boxShadow="0 0 10px white";
+
+sparkles.appendChild(s);
+
+s.animate(
+
+[
+
+{opacity:0,transform:"scale(.2)"},
+
+{opacity:1,transform:"scale(1.5)"},
+
+{opacity:0,transform:"scale(.2)"}
+
+],
+
+{
+
+duration:2000
+
+}
+
+);
+
+setTimeout(()=>{
+
+s.remove();
+
+},2000);
+
+}
+
+setInterval(sparkle,200);
+
+//==========================
+// PELUKAN
+//==========================
+
+function endScene(){
+
+boyBubble.classList.remove("show");
+
+girlBubble.classList.remove("show");
+
+boy.style.transition="2s";
+girl.style.transition="2s";
+
+boy.style.transform="translateX(90px)";
+girl.style.transform="translateX(-90px)";
+
+setTimeout(()=>{
+
+for(let i=0;i<40;i++){
+
+setTimeout(createHeart,i*80);
+
+}
+
+ending.classList.add("show");
+
+},2200);
+
+}
+
+//==========================
+// GOYANG HALUS
+//==========================
+
+let angle=0;
+
+function animate(){
+
+angle+=0.02;
+
+boy.style.rotate=Math.sin(angle)*2+"deg";
+
+girl.style.rotate=-Math.sin(angle)*2+"deg";
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+</script>
+
+</body>
+
+</html>
