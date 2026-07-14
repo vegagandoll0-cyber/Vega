@@ -1,0 +1,484 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f7eef5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    background:url("foto/Bg.png") center center/cover no-repeat;
+
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:rgba(255,255,255,.2);
+
+    z-index:-1;
+}
+
+.container{
+    text-align:center;
+}
+
+.container h1{
+    color:#e63963;
+    margin-bottom:5px;
+    font-style: oblique;
+    text-shadow: 0 2px 10px rgba(255,255,255,.8);
+}
+
+.container p{
+    color:#666;
+    margin-bottom:35px;
+}
+
+/* ========================= */
+
+.envelope-wrapper{
+    position:relative;
+    width:380px;
+    height:350px;
+    margin:auto;
+    filter:drop-shadow(0 15px 30px rgba(0,0,0,.25));
+}
+
+/* ========================= */
+/* SURAT */
+/* ========================= */
+
+.letter{
+    position:absolute;
+    left:50%;
+    bottom:15px;
+
+    width:330px;
+    height:200px;
+
+    transform:translate(-50%,0);
+
+    background:#fff;
+
+    border-radius:10px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    z-index:1;
+
+    overflow:hidden;
+}
+
+/* isi surat */
+
+.letter-content{
+
+    display:flex;
+
+    height:100%;
+
+}
+
+.text{
+
+    flex:1;
+
+    padding:20px;
+
+    text-align:left;
+
+}
+
+.text h2{
+
+    color:#e63963;
+
+    margin-bottom:15px;
+
+}
+
+.text p{
+
+    font-size:14px;
+
+    line-height:15px;
+
+    margin: 0;
+
+    color:#555;
+
+}
+
+.text h3{
+
+    margin-top:20px;
+
+    color:#ff3366;
+
+}
+
+.photo{
+
+    width:130px;
+
+    background:#ffe8ef;
+
+}
+
+.photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    padding: 5px;
+
+}
+
+/* ========================= */
+/* BELAKANG AMPLOP */
+/* ========================= */
+
+.envelope-back{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:220px;
+
+    background:#ff7b94;
+
+    border-radius:8px;
+
+    z-index:2;
+
+}
+
+/* ========================= */
+/* DEPAN AMPLOP */
+/* ========================= */
+
+.envelope-front{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:220px;
+
+    z-index:5;
+
+}
+
+.envelope-front::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:190px solid #ff9eb0;
+
+    border-top:110px solid transparent;
+
+    border-bottom:110px solid transparent;
+
+}
+
+.envelope-front::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:0;
+
+    border-right:190px solid #ff9eb0;
+
+    border-top:110px solid transparent;
+
+    border-bottom:110px solid transparent;
+
+}
+
+/* ========================= */
+/* TUTUP AMPLOP */
+/* ========================= */
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:130px;
+
+    left:0;
+
+    width:0;
+
+    height:0;
+
+    border-left:190px solid transparent;
+
+    border-right:190px solid transparent;
+
+    border-top:110px solid #f15b7b;
+
+    transform-origin:top;
+
+    z-index:6;
+
+}
+
+/* ========================= */
+
+.button-group{
+
+    margin-top:30px;
+
+}
+
+button{
+
+    width:120px;
+
+    height:45px;
+
+    margin:8px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    background:#ff5d87;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    background:rgba(255,79,122,.4);
+
+}
+
+button:hover{
+
+    background:#e63963;
+
+}
+
+/* ========================= */
+/* OPEN ANIMATION */
+/* ========================= */
+
+.envelope-flap{
+    transition:transform .6s ease, z-index 0s .3s;
+}
+
+.letter{
+    transition:transform 4s ease;
+}
+
+/* Tutup amplop membuka */
+
+.envelope-wrapper.open .envelope-flap{
+
+    transform:rotateX(180deg);
+
+    z-index:0;
+
+}
+
+/* Surat keluar */
+
+.envelope-wrapper.open .letter{
+
+    transform:translate(-50%,-190px);
+    z-index: 10;
+}
+
+/* ================= HEART ================= */
+
+.hearts{
+    position:absolute;
+    left:50%;
+    bottom:70px;
+
+    width:0;
+    height:0;
+
+    transform:translateX(-50%);
+
+    z-index:20;
+
+    pointer-events:none;
+}
+
+.hearts span{
+
+    position:absolute;
+
+    opacity:0;
+
+    font-size:60px;
+
+    animation:none;
+
+}
+
+/* Saat OPEN */
+
+.envelope-wrapper.open .hearts span{
+
+    animation:love 5s ease forwards;
+
+}
+
+.hearts span:nth-child(1){
+    left:0;
+    animation-delay:0s;
+}
+
+.hearts span:nth-child(2){
+    left:-35px;
+    animation-delay:.2s;
+}
+
+.hearts span:nth-child(3){
+    left:35px;
+    animation-delay:.4s;
+}
+
+.hearts span:nth-child(4){
+    left:-70px;
+    animation-delay:.6s;
+}
+
+.hearts span:nth-child(5){
+    left:70px;
+    animation-delay:.8s;
+}
+
+@keyframes love{
+
+    0%{
+        opacity:0;
+        transform:translateY(0) scale(.4);
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-260px) scale(1.2);
+    }
+
+}
+
+/* ========================= */
+/* SEAL */
+/* ========================= */
+
+.seal{
+    position:absolute;
+
+    left:50%;
+    bottom:75px;
+
+    transform:translateX(-50%);
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    background:#e2a1b1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:26px;
+
+    color:white;
+
+    box-shadow:0 6px 12px rgba(0,0,0,.2);
+
+    z-index:9;
+
+    transition:5s;
+}
+
+.envelope-wrapper.open .seal{
+
+    opacity:0;
+
+    transform:translateX(-50%) scale(0);
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width:768px){
+
+    .container{
+        width:100%;
+        padding:20px;
+    }
+
+    .container h1{
+        font-size:32px;
+    }
+
+    .container p{
+        font-size:15px;
+    }
+
+    .envelope-wrapper{
+        transform:scale(.85);
+    }
+
+    button{
+        width:120px;
+        height:45px;
+        font-size:15px;
+    }
+
+}
