@@ -456,29 +456,3 @@ button:hover{
 /* MOBILE */
 /* ========================= */
 
-@media (max-width:768px){
-
-    .container{
-        width:100%;
-        padding:20px;
-    }
-
-    .container h1{
-        font-size:32px;
-    }
-
-    .container p{
-        font-size:15px;
-    }
-
-    .envelope-wrapper{
-        transform:scale(.85);
-    }
-
-    button{
-        width:120px;
-        height:45px;
-        font-size:15px;
-    }
-
-}
