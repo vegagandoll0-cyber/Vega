@@ -12,7 +12,7 @@ body{
     align-items:center;
     min-height:100vh;
 
-    background:url("foto/Bg.png") center center/cover no-repeat;
+    background:url("Bg.png") center center/cover no-repeat;
 
     overflow:hidden;
 }
